@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Add testing branch
+deb http://http.deb.debian.org/debian testing main non-free contrib
+deb-src http://http.deb.debian.org/debian testing main non-free contrib
 #Update & upgrade
 sudo apt update && sudo apt upgrade -y
 
