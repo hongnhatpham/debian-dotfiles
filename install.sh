@@ -40,7 +40,7 @@ sudo auto-cpufreq --install
 sudo apt install ttf-mscorefonts-installer -y
 
 #Install desktop environment
-sudo apt install spectrwm dunst lxappearance xterm nitrogen pcmanfm rofi -y
+sudo apt install spectrwm dunst lxappearance xterm feh pcmanfm rofi -y
 
 #Brave browser
 sudo apt install apt-transport-https curl
@@ -51,3 +51,16 @@ sudo apt install brave-browser -y
 
 #Install other desktop programs
 sudo apt install kdeconnect -y
+sudo apt install mpv -y
+sudo apt install zathura -y
+
+#Install VSCodium
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
+    | gpg --dearmor \
+    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+
+echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' \
+    | sudo tee /etc/apt/sources.list.d/vscodium.list
+sudo apt update
+sudo apt install codium
+
