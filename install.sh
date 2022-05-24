@@ -3,9 +3,6 @@
 #Update & upgrade
 sudo apt update && sudo apt upgrade -y
 
-#Install git
-sudo apt install git -y
-
 #Ly Lock screen
 sudo apt install build-essential libpam0g-dev libxcb-xkb-dev -y
 
