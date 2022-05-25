@@ -4,17 +4,17 @@
 sudo apt update && sudo apt upgrade -y
 
 #Ly Lock screen
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev -y
+#sudo apt install build-essential libpam0g-dev libxcb-xkb-dev -y
 
-cd ~
-git clone --recurse-submodules https://github.com/nullgemm/ly.git
-cd ly
-make
-sudo make run
-sudo make install
-sudo systemctl enable ly.service
-cd ~
-rm -r ./ly
+#cd ~
+#git clone --recurse-submodules https://github.com/nullgemm/ly.git
+#cd ly
+#make
+#sudo make run
+#sudo make install
+#sudo systemctl enable ly.service
+#cd ~
+#rm -r ~/ly
 
 #Install Xorg display server
 sudo apt install xorg xserver-xorg xutils mesa-utils xinit arandr autorandr -y
@@ -23,7 +23,7 @@ sudo apt install xorg xserver-xorg xutils mesa-utils xinit arandr autorandr -y
 sudo apt install firmware-linux firmware-linux-nonfree -y
 
 #Install terminal programs
-sudo apt install vim neovim htop -y
+sudo apt install vim neovim htop kitty neofetch vifm -y
 
 #Install power management
 cd ~
@@ -31,7 +31,14 @@ git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
 
 sudo auto-cpufreq --install
+cd ~
 
+sudo apt install acpi -y
+
+# Install Pipewire audio service
+sudo apt install wireplumber pipewire-media-session- -y
+systemctl --user --now enable wireplumber.service
+sudo apt install pipewire-pulse -y
 
 #Install fonts
 sudo apt install ttf-mscorefonts-installer -y
@@ -50,14 +57,3 @@ sudo apt install brave-browser -y
 sudo apt install kdeconnect -y
 sudo apt install mpv -y
 sudo apt install zathura -y
-
-#Install VSCodium
-wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
-    | gpg --dearmor \
-    | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
-
-echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs vscodium main' \
-    | sudo tee /etc/apt/sources.list.d/vscodium.list
-sudo apt update
-sudo apt install codium
-
