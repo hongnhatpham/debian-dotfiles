@@ -30,6 +30,22 @@ vol() {
     echo -e "VOL $vol"
 }
 
+## BAT
+bat() {
+	bat=`acpi | awk -F', ' '{print $2}'`
+	status=`acpi | awk -F', ' '{print $1}'`
+	if [[ $status == "Battery 0: Charging" ]]
+	then
+		echo -e "BAT $bat +"
+	elif [[ $status == "Battery 0: Discharging" ]]
+	then
+		echo -e "BAT $bat -"
+	else
+		echo -e "BAT $bat"
+	fi
+}
+
+
 SLEEP_SEC=3
 #loops forever outputting a line every SLEEP_SEC secs
 
@@ -38,7 +54,7 @@ SLEEP_SEC=3
 # So I would love to add more functions to this script but it makes the 
 # echo output too long to display correctly.
 while :; do
-    echo "+@fg=8;$(cpu)+4<$(mem)+4<$(hdd)+4<$(vol)"
+	echo "+@fg=8;$(cpu)+4<$(mem)+4<$(hdd)+4<$(vol)+4<$(bat)"
 	sleep $SLEEP_SEC
 done
 
