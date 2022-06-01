@@ -5,6 +5,7 @@
 :set shiftwidth=4
 :set softtabstop=4
 :set mouse=a
+:set clipboard=unnamed
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'lukas-reineke/indent-blankline.nvim'
