@@ -26,8 +26,8 @@ cpu() {
 
 ## VOLUME
 vol() {
-    vol=`amixer get Master | awk -F'[][]' 'END{ print $4":"$2 }' | sed 's/on://g'`
-    echo -e "VOL $vol"
+    vol=`pulsemixer --get-volume | awk '{print $1}'`
+    echo -e "VOL $vol%"
 }
 
 ## BAT
@@ -44,7 +44,6 @@ bat() {
 		echo -e "BAT $bat"
 	fi
 }
-
 
 SLEEP_SEC=3
 #loops forever outputting a line every SLEEP_SEC secs

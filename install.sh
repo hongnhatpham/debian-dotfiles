@@ -3,6 +3,9 @@
 #Update & upgrade
 sudo apt update && sudo apt upgrade -y
 
+#Move config folder out 
+cp -r ~/debian-dotfiles/config-files/ ~
+
 #Ly Lock screen
 #sudo apt install build-essential libpam0g-dev libxcb-xkb-dev -y
 
@@ -23,7 +26,13 @@ sudo apt install xorg xserver-xorg xutils mesa-utils xinit arandr autorandr -y
 sudo apt install firmware-linux firmware-linux-nonfree -y
 
 #Install terminal programs
-sudo apt install vim neovim htop kitty neofetch vifm -y
+sudo apt install neovim htop kitty neofetch vifm nodejs npm -y
+
+#Install VIM config
+sudo npm install -g yarn
+cd ~/.config/nvim/plugged/coc.nvim
+yarn install
+yarn build
 
 #Install power management
 cd ~
@@ -38,7 +47,7 @@ sudo apt install acpi -y
 # Install Pipewire audio service
 sudo apt install wireplumber pipewire-media-session- -y
 systemctl --user --now enable wireplumber.service
-sudo apt install pipewire-pulse -y
+sudo apt install pipewire-pulse pulsemixer -y
 
 #Install fonts
 sudo apt install ttf-mscorefonts-installer -y
