@@ -34,6 +34,10 @@ cd ~/.config/nvim/plugged/coc.nvim
 yarn install
 yarn build
 
+#Install Flatpak
+sudo apt install flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 #Install power management
 cd ~
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
