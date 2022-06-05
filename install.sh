@@ -34,6 +34,9 @@ cd ~/.config/nvim/plugged/coc.nvim
 yarn install
 yarn build
 
+#Web development
+sudo npm install -g live-server
+
 #Install Flatpak
 sudo apt install flatpak -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
