@@ -57,7 +57,7 @@ sudo nala install pipewire-pulse pulsemixer -y
 sudo nala install ttf-mscorefonts-installer -y
 
 #Install desktop environment
-sudo nala install spectrwm dunst lxappearance xterm feh pcmanfm rofi -y
+sudo nala install spectrwm udiskie dunst lxappearance xterm feh pcmanfm rofi -y
 
 #Brave browser
 sudo nala install nala-transport-https curl
@@ -70,3 +70,5 @@ sudo nala install brave-browser -y
 sudo nala install kdeconnect -y
 sudo nala install mpv -y
 sudo nala install zathura -y
+sudo nala install beets -y
+done
